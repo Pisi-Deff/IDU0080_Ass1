@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>IDU0080 assignment 1</title>
+
+	<link rel="stylesheet" href="./ass1.css">
+</head>
+
+<body>
+	<header>
+		<h2>Games!</h2>
+	</header>
+	
+	<section id="loading">
+		<h2>Loading...</h2>
+	</section>
+		
+	<section id="unexpectedError" class="hidden errorText">
+		Unexpected error
+	</section>
+	
+	<section id="content">
+		<section>
+			<button type="button" id="refreshBtn">Refresh</button>	
+		</section>
+		
+		<section id="noEntries" class="hidden errorText">
+			No entries found
+		</section>
+		
+		<section id="list" class="hidden">
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Release Date</th>
+						<th>Score</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody id="listBody">
+				</tbody>
+			</table>
+		</section>
+		
+		<h3>Add new entry:</h3>
+			
+		<section id="addForm">
+		</section>
+		
+		<h3>Search by name:</h3>
+		<form id="searchByName" action="javascript:;" method="GET">
+			<input type="text" name="name" required />
+			<button type="submit">Go</button>
+		</form>
+		
+		<p />
+		<button type="button" id="getExternalList">Get External List</button>
+	</section>
+	
+	<section id="edit" class="hidden">
+		<h3>Edit entry:</h3>
+		<section id="editForm"></section>
+	</section>
+	
+	<script id="template_entry" type="text/x-handlebars-template">
+		<td>{{name}}</td>
+		<td>{{releaseDate}}</td>
+		<td>{{score}}</td>
+		<td>
+			<button type="button" class="editBtn">Edit</button>
+			<button type="button" class="deleteBtn">Delete</button>
+		</td>
+	</script>
+	
+	<script id="template_form" type="text/x-handlebars-template">
+		<form action="javascript:;" method="POST">
+			<label>
+				<span>Name:</span>
+				<input type="text" name="name" value="{{name}}" required />
+			</label>
+			<label>
+				<span>Release Date:</span>
+				<input type="date" name="releaseDate" value="{{releaseDate}}" required />
+			</label>
+			<label>
+				<span>Developer:</span>
+				<input type="text" name="developer" value="{{developer}}" />
+			</label>
+			<label>
+				<span>Score:</span>
+				<input type="number" name="score" value="{{score}}" min="1" max="10" />
+			</label>
+
+			<button type="submit">Save</button>
+		</form>
+	</script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+	<script src="./ass1.js"></script>
+</body>
+
+</html>
